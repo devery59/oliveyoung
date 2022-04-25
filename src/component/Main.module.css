@@ -1,0 +1,36 @@
+.box{
+    width : 375px;
+    height : 120px;
+    background-color :lightgreen;
+    margin : auto;
+    border-radius: 15px;
+}
+
+.name{
+    text-align: center;
+    font-size : 20px;
+    color : black;
+    margin-top : 10px;
+    margin-left : 20px;
+    margin-right : 20px;
+    border-bottom : 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.price{
+    text-align : center;
+    overflow-y:scroll;
+    height : 40px;
+    padding-top : 10px;
+    padding-right:25px;
+    padding-left:25px;
+}
+
+.period{
+    text-align : center;
+    overflow-y:scroll;
+    color : red;
+    height : 150px;
+    padding-right:25px;
+    padding-left:25px;
+}

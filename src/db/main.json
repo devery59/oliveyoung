@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "product_name": "센카 퍼펙트휩 아크네케어",
+      "original_price": 8000,
+      "discounted_price": 7100,
+      "from": "2022-03-03",
+      "to": "2022-03-31"
+    },
+    {
+      "id": 2,
+      "product_name": "피지오겔 DMT 데일리 보습 로션 200ml",
+      "original_price": 35500,
+      "discounted_price": 18960,
+      "from": "2022-03-03",
+      "to": "2022-04-30"
+    },
+    {
+      "id": 3,
+      "product_name": "바이오더마 하이드라비오 H20 500ml",
+      "original_price": 24000,
+      "discounted_price": 14820,
+      "from": "2022-03-03",
+      "to": "2022-04-30"
+    }
+  ]
+}
