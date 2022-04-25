@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {PureComponent, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import styles from './Detail.module.css';
 import Modal from "./modal";
 import axios from "axios";
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+
 
 function Detail() {
     const { productId } = useParams();
@@ -16,6 +17,25 @@ function Detail() {
     const closeModal = () => {
         setModalOpen(false);
     };
+
+    class Chart extends PureComponent{
+        render() {
+            return (
+                <ResponsiveContainer width = "100%" height = "100%">
+                    <LineChart
+                        data = {data.sales}
+                    >
+                        <CartesianGrid strokeDasharray="5 5"/>
+                        <XAxis dataKey = "startDate"/>
+                        <YAxis dataKey="discountRate"/>
+                        <Tooltip />
+                        <Legend />
+                        <Line type = "monotone" dataKey = "discountRate" activeDot={{ r: 8 }}/>
+                    </LineChart>
+                </ResponsiveContainer>
+            );
+        }
+    }
 
     const [data, setdata] = useState({});
 
@@ -32,6 +52,8 @@ function Detail() {
         };
         fetchEvents();
     },[]);
+    const discount_history = data.sales;
+
     return (
         <div>
             <div key = {productId}>
@@ -46,18 +68,7 @@ function Detail() {
                 </React.Fragment>
                 <div className = {styles.container}>
                     <div className = {styles.chart}>
-                            <ResponsiveContainer width = "100%" height = "100%">
-                                <LineChart
-                                    data = {data.sales}
-                                >
-                                <CartesianGrid strokeDasharray="3 3"/>
-                                <XAxis dataKey = "startDate"/>
-                                <YAxis dataKey = "discountRate"/>
-                                <Tooltip />
-                                <Legend />
-                                <Line type = "monotone" dataKey = "rate" activeDot={{ r: 8 }}/>
-                            </LineChart>
-                        </ResponsiveContainer>
+                            <Chart />
                     </div>
                 </div>
                 <div>과거 세일 기간</div>
@@ -72,5 +83,7 @@ function Detail() {
         </div>
     )
 }
+
+
 export default Detail;
 
